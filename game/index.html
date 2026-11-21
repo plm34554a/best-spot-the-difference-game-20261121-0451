@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Orrery Keeper's Study — Spot the Difference</title>
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <h1>The Orrery Keeper's Study</h1>
+    <p class="tagline">Spot the difference — two pictures, one keeper, nine secrets.</p>
+  </div>
+  <div class="hud" id="hud">
+    <div class="hud-block"><span class="hud-label">Level</span><span id="level-name">Level 1</span></div>
+    <div class="hud-block remain"><span class="hud-label">Remaining</span><span id="counter-big">5</span></div>
+    <div class="hud-block"><span class="hud-label">Found</span><span id="counter">Found 0 / 5 · 5 remain</span></div>
+    <div class="hud-block"><span class="hud-label">Time</span><span id="timer">3:00</span></div>
+    <div class="hud-block"><span class="hud-label">Score</span><span id="score">Score 0</span></div>
+    <div class="hud-block"><span class="hud-label">Hints</span><span id="hints">Hints 3</span></div>
+  </div>
+</header>
+
+<div class="timebar"><div id="timebar-fill"></div></div>
+
+<main>
+  <p class="level-line"><strong id="level-blurb">Five easy spots to warm up your eyes.</strong>
+    Click a difference on either picture — or move with the arrow keys and press Enter. H for a hint.</p>
+  <div class="panels">
+    <figure class="panel">
+      <figcaption>Original</figcaption>
+      <canvas id="panel-left" width="560" height="420"></canvas>
+    </figure>
+    <figure class="panel">
+      <figcaption>Changed</figcaption>
+      <canvas id="panel-right" width="560" height="420"></canvas>
+    </figure>
+  </div>
+  <div class="controls">
+    <button id="hint-btn" type="button">Hint (H) — 3 left</button>
+    <button id="restart-btn" type="button">Restart level (R)</button>
+    <button id="sound-btn" type="button">Sound: on</button>
+  </div>
+  <p class="help">Mouse: click a difference. Keyboard: arrows move the cursor, Enter marks it,
+    Tab switches panels, H hints. A wrong click costs 5 seconds. Find them all before the lamp burns down.</p>
+</main>
+
+<div id="toast" class="toast" role="status"></div>
+
+<div id="start" class="overlay">
+  <div class="card">
+    <h2>The Orrery Keeper's Study</h2>
+    <p>Old Master Anselm keeps an orrery, a sleeping cat and nine small secrets in his study.
+      Something in the right-hand picture is not as it should be — nine times over.
+      Find every difference before the lamp burns down.</p>
+    <ul class="rules">
+      <li>Three levels: 5, then 7, then all 9 differences — and less time each round.</li>
+      <li>Click a difference, or move with arrow keys and press Enter.</li>
+      <li>Hints cost 25 points. A wrong click costs 5 seconds.</li>
+    </ul>
+    <div class="start-buttons">
+      <button id="start-btn" type="button">Start the hunt</button>
+      <button class="level-pick" type="button" data-level="1">Level 2 — Lamplight</button>
+      <button class="level-pick" type="button" data-level="2">Level 3 — Midnight Orrery</button>
+    </div>
+  </div>
+</div>
+
+<div id="level-done" class="overlay hidden">
+  <div class="card">
+    <h2>Level complete!</h2>
+    <p></p>
+    <div class="start-buttons">
+      <button id="next-btn" type="button">Next level</button>
+      <button id="retry-btn" type="button">Play again</button>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="./game.js"></script>
+</body>
+</html>
